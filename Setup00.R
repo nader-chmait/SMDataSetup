@@ -104,7 +104,7 @@ colnames(agg.insta) <- c("Post ID", "Shared Content ID", "Message", "Date", "Tim
 library(stringi)
 #V1 --> Post Id
 agg.fb.1 <- agg.fb[!duplicated(agg.fb$`Post ID`) & agg.fb$`Post ID`!=  "No Data Available", ]
-agg.twitter.1 <- agg.twitter[!grepl("reply with #", agg.twitter$Message, ignore.case = T) & !duplicated(agg.twitter$`Tweet ID`) & agg.twitter$`Tweet ID`!=  "No Data Available", ]
+agg.twitter.1 <- agg.twitter[!grepl("reply with #", agg.twitter$Message, ignore.case = T) & !grepl("Here's how the Finals of #AusOpen played out on Twitter.", agg.twitter$Message, ignore.case = T) & !duplicated(agg.twitter$`Tweet ID`) & agg.twitter$`Tweet ID`!=  "No Data Available", ]
 agg.insta.1 <- agg.insta[!duplicated(agg.insta$`Post ID`) & agg.insta$`Post ID`!=  "No Data Available", ]
 
 # V4 --> Post Date. V5 --> Post Time .
